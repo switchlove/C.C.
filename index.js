@@ -23,7 +23,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message === '.help') {
 		bot.sendMessage({
 			to: channelID,
-			message: "Commandes possibles : '.btc, .eth, gdax'"
+			message: "Commands possible: '.btc, .eth, .dash, .ltc'"
 		});	
 	}
 
