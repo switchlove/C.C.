@@ -232,8 +232,8 @@ bot.on('message', function(user, userID, channelID, message, event) {
 				console.log('Status:', res.statusCode);
 			} else {
 		      // data is already parsed as JSON:
-		      console.log(data.result.XLTCZUSD.a[0]);
-		      msg = data.result.XLTCZUSD.a[0]+'';
+		      console.log(data.result.XXRPZUSD.a[0]);
+		      msg = data.result.XXRPZUSD.a[0]+'';
 		      console.log(msg);
 		      bot.sendMessage({
 		      	to: channelID,
