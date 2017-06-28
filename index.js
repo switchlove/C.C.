@@ -23,7 +23,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message === '.help') {
 		bot.sendMessage({
 			to: channelID,
-			message: "Commands possible: '.btc, .eth, .dash, .ltc'"
+			message: "Commands possible: '.btc, .eth, .etc, .dash, .ltc'"
 		});	
 	}
 
@@ -81,6 +81,33 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		});
 	}
 	
+	if (message==='.etc') {
+		var url = 'https://api.kraken.com/0/public/Ticker?pair=etcusd';
+		var msg='EMPTY';
+		request.get({
+			url: url,
+			json: true,
+			headers: {'User-Agent': 'request'}
+		}, (err, res, data) => {
+			if (err) {
+				console.log('Error:', err);
+				msg='Error '+ err;
+			} else if (res.statusCode !== 200) {
+				msg = 'Error Status code : '+res.statusCode;
+				console.log('Status:', res.statusCode);
+			} else {
+		      // data is already parsed as JSON:
+		      console.log(data.result.XETCZUSD.a[0]);
+		      msg = data.result.XETCZUSD.a[0]+'';
+		      console.log(msg);
+		      bot.sendMessage({
+		      	to: channelID,
+		      	message: ("ETH/USD : " + msg)
+		      });
+		  }
+		});
+	}
+	
 	if (message==='.dash') {
 		var url = 'https://api.kraken.com/0/public/Ticker?pair=dashusd';
 		var msg='EMPTY';
@@ -129,7 +156,88 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		      console.log(msg);
 		      bot.sendMessage({
 		      	to: channelID,
-		      	message: ("KRAKEN - ETH/USD : " + msg)
+		      	message: ("LTC/USD : " + msg)
+		      });
+		  }
+		});
+	}
+	
+	if (message==='.gno') {
+		var url = 'https://api.kraken.com/0/public/Ticker?pair=gnousd';
+		var msg='EMPTY';
+		request.get({
+			url: url,
+			json: true,
+			headers: {'User-Agent': 'request'}
+		}, (err, res, data) => {
+			if (err) {
+				console.log('Error:', err);
+				msg='Error '+ err;
+			} else if (res.statusCode !== 200) {
+				msg = 'Error Status code : '+res.statusCode;
+				console.log('Status:', res.statusCode);
+			} else {
+		      // data is already parsed as JSON:
+		      console.log(data.result.GNOUSD.a[0]);
+		      msg = data.result.GNOUSD.a[0]+'';
+		      console.log(msg);
+		      bot.sendMessage({
+		      	to: channelID,
+		      	message: ("GNO/USD : " + msg)
+		      });
+		  }
+		});
+	}
+	
+	if (message==='.rep') {
+		var url = 'https://api.kraken.com/0/public/Ticker?pair=repusd';
+		var msg='EMPTY';
+		request.get({
+			url: url,
+			json: true,
+			headers: {'User-Agent': 'request'}
+		}, (err, res, data) => {
+			if (err) {
+				console.log('Error:', err);
+				msg='Error '+ err;
+			} else if (res.statusCode !== 200) {
+				msg = 'Error Status code : '+res.statusCode;
+				console.log('Status:', res.statusCode);
+			} else {
+		      // data is already parsed as JSON:
+		      console.log(data.result.XREPZUSD.a[0]);
+		      msg = data.result.XREPZUSD.a[0]+'';
+		      console.log(msg);
+		      bot.sendMessage({
+		      	to: channelID,
+		      	message: ("REP/USD : " + msg)
+		      });
+		  }
+		});
+	}
+	
+	if (message==='.xrp') {
+		var url = 'https://api.kraken.com/0/public/Ticker?pair=xrpusd';
+		var msg='EMPTY';
+		request.get({
+			url: url,
+			json: true,
+			headers: {'User-Agent': 'request'}
+		}, (err, res, data) => {
+			if (err) {
+				console.log('Error:', err);
+				msg='Error '+ err;
+			} else if (res.statusCode !== 200) {
+				msg = 'Error Status code : '+res.statusCode;
+				console.log('Status:', res.statusCode);
+			} else {
+		      // data is already parsed as JSON:
+		      console.log(data.result.XLTCZUSD.a[0]);
+		      msg = data.result.XLTCZUSD.a[0]+'';
+		      console.log(msg);
+		      bot.sendMessage({
+		      	to: channelID,
+		      	message: ("XRP/USD : " + msg)
 		      });
 		  }
 		});
