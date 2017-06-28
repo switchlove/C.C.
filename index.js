@@ -102,7 +102,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		      console.log(msg);
 		      bot.sendMessage({
 		      	to: channelID,
-		      	message: ("ETH/USD : " + msg)
+		      	message: ("ETC/USD : " + msg)
 		      });
 		  }
 		});
