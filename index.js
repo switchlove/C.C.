@@ -262,7 +262,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	
 	if (message.startsWith(prefix + "value")) {
 		let args = message.split(" ").slice(1);
-		let coin = args[0];
+		let coin = args[0].toUpperCase();
 		var url = 'https://min-api.cryptocompare.com/data/price?fsym=' + coin + '&tsyms=BTC,USD';
 		request({
     			url: url,
