@@ -14,7 +14,9 @@ bot.on('ready', function() {
 });
 
 bot.on('message', function(user, userID, channelID, message, event) {
-	if (message === ".ping") {
+	let prefix = ".";
+
+	if (message === '.ping') {
 		bot.sendMessage({
 			to: channelID,
 			message: "pong"
@@ -23,11 +25,18 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message === '.help') {
 		bot.sendMessage({
 			to: channelID,
-			message: "Checkable currencies: '.btc, .dash, .doge, .esp, .eth, .etc, .gno, .gnt, .ltc, .rep, .sc, .strat, .xrp'"
+			message: "See '.help2' for more. Convert any currency: .value COINHERE"
+		});	
+	}
+	
+	if (message === '.help2') {
+		bot.sendMessage({
+			to: channelID,
+			message: "Old conversion commands: '.btc, .dash, .doge, .esp, .eth, .etc, .gno, .gnt, .ltc, .rep, .sc, .strat, .xrp'"
 		});	
 	}
 
-	if (message==='.btc') {
+	if (message === '.btc') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD';
 		request({
     			url: url,
@@ -43,7 +52,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 	
-	if (message==='.eth') {
+	if (message === '.eth') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -59,7 +68,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.etc') {
+	if (message === '.etc') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=ETC&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -75,7 +84,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.dash') {
+	if (message === '.dash') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=DASH&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -91,7 +100,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.ltc') {
+	if (message === '.ltc') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=LTC&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -107,7 +116,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.gno') {
+	if (message === '.gno') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=GNO&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -123,7 +132,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.rep') {
+	if (message === '.rep') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=REP&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -139,7 +148,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.xrp') {
+	if (message === '.xrp') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -155,7 +164,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.gnt') {
+	if (message === '.gnt') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=GNT&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -171,7 +180,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.strat') {
+	if (message === '.strat') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=STRAT&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -187,7 +196,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.sc') {
+	if (message === '.sc') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=SC&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -203,7 +212,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.doge') {
+	if (message === '.doge') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=DOGE&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -219,7 +228,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-	if (message==='.esp') {
+	if (message === '.esp') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=ESP&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -235,7 +244,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		})
 	}
 
-        if (message==='.test') {
+        if (message === '.test') {
                 var url = 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD';
 		request({
     			url: url,
@@ -246,6 +255,24 @@ bot.on('message', function(user, userID, channelID, message, event) {
 				bot.sendMessage({
        	   	                  to: channelID,
           	                  message: ("ETH ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
+	}
+	
+	if (message.startsWith(prefix + "value")) {
+		let args = message.split(" ").slice(1);
+		let coin = args[0];
+		var url = 'https://min-api.cryptocompare.com/data/price?fsym=' + coin + '&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log(coin + "/USD: " + body.USD + " & " + coin + "/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: (coin + " ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
 			  	});
 			}
 		})
