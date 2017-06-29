@@ -23,7 +23,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message === '.help') {
 		bot.sendMessage({
 			to: channelID,
-			message: "Checkable currencies: '.btc, .dash, .doge, .eth, .etc, .gno, .gnt, .ltc, .rep, .sc, .strat, .xrp'"
+			message: "Checkable currencies: '.btc, .dash, .doge, .esp, .eth, .etc, .gno, .gnt, .ltc, .rep, .sc, .strat, .xrp'"
 		});	
 	}
 
