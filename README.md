@@ -5,6 +5,7 @@ Now checking the following currencies
 * BTC (Bitcoin) | Command: .btc
 * DASH (Dashcoin) | Command: .dash
 * DOGE (Dogecoin) | Command: .doge
+* ESP (Espers) | Command: .esp
 * ETC (Ethereum Classic) | Command: .etc
 * ETH (Ethereum) | Command: .eth
 * GNO (Gnosis) | Command: .gno
