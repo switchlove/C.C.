@@ -1,6 +1,5 @@
-var request = require('request');
 var Discord = require('discord.io');
-var coinTicker = require('coin-ticker');
+var request = require('request');
 var data = require("./config.json");
 
 botToken = data.botToken;
@@ -29,147 +28,227 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	}
 
 	if (message==='.btc') {
-		coinTicker('bittrex', 'BTC_USD')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("BTC/USD: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("BTC/USD: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("BTC/USD: " + body.USD);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("BTC ⇒ USD: $" + body.USD)
+			  	});
+			}
+		})
 	}
 	
 	if (message==='.eth') {
-		coinTicker('bittrex', 'ETH_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("ETH/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("ETH/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("ETH/USD: " + body.USD + " & ETH/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("ETH ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.etc') {
-		coinTicker('bittrex', 'ETC_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("ETC/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("ETC/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=ETC&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("ETC/USD: " + body.USD + " & ETC/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("ETC ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.dash') {
-		coinTicker('bittrex', 'DASH_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("DASH/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("DASH/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=DASH&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("DASH/USD: " + body.USD + " & DASH/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("DASH ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.ltc') {
-		coinTicker('bittrex', 'LTC_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("LTC/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("LTC/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=LTC&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("LTC/USD: " + body.USD + " & LTC/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("LTC ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.gno') {
-		coinTicker('bittrex', 'GNO_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("GNO/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("GNO/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=GNO&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("GNO/USD: " + body.USD + " & GNO/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("GNO ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.rep') {
-		coinTicker('bittrex', 'REP_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("REP/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("REP/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=REP&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("REP/USD: " + body.USD + " & REP/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("REP ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.xrp') {
-		coinTicker('bittrex', 'XRP_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("XRP/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("XRP/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("XRP/USD: " + body.USD + " & XRP/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("XRP ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.gnt') {
-		coinTicker('bittrex', 'GNT_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("GNT/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("GNT/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=GNT&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("GNT/USD: " + body.USD + " & GNT/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("GNT ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.strat') {
-		coinTicker('bittrex', 'STRAT_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("STRAT/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("STRAT/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=STRAT&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("STRAT/USD: " + body.USD + " & STRAT/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("STRAT ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.sc') {
-		coinTicker('bittrex', 'SC_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("SC/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("SC/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=SC&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("SC/USD: " + body.USD + " & SC/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("SC ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
 	if (message==='.doge') {
-		coinTicker('bittrex', 'DOGE_BTC')
-   		.then((tick) => {
-      			console.log(tick)
- 			console.log("DOGE/BTC: " + tick.last);
-			bot.sendMessage({
-		      	  to: channelID,
-		      	  message: ("DOGE/BTC: " + tick.last)
-		      });
-   		})
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=DOGE&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("DOGE/USD: " + body.USD + " & DOGE/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("DOGE ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
 	}
 
+	if (message==='.esp') {
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=ESP&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("ESP/USD: " + body.USD + " & ESP/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("ESP ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
+	}
+
+        if (message==='.test') {
+                var url = 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD';
+		request({
+    			url: url,
+   			 json: true
+		}, function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+				console.log("ETH/USD: " + body.USD + " & ETH/BTC: " + body.BTC);
+				bot.sendMessage({
+       	   	                  to: channelID,
+          	                  message: ("ETH ⇒ USD/BTC: $" + body.USD + " ฿" + body.BTC)
+			  	});
+			}
+		})
+	}
+	
 });
