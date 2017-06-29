@@ -22,10 +22,11 @@ bot.on('message', function(user, userID, channelID, message, event) {
 			message: "pong"
 		});
 	}
+	
 	if (message === '.help') {
 		bot.sendMessage({
 			to: channelID,
-			message: "See '.help2' for more. Convert any currency: .value COINHERE"
+			message: "Converts most cryptocurrencies to USD & BTC: .value COINHERE"
 		});	
 	}
 	
