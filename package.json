@@ -1,15 +1,21 @@
 {
   "name": "SwitchCoin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A cryptocurrency Discord chat bot for polling cryptocurrency pricing.",
   "main": "index.js",
   "scripts": {
-    "run": "node index.js"
+    "start": "node index.js"
   },
   "author": "",
-  "license": "GNU",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/switchlove/SwitchCoin.git"
+  },
   "dependencies": {
-    "discord.io": "^2.5.1",
-    "request": "^2.81.0"
+    "coin-ticker": "^3.2.0",
+    "discord.js": "^11.3.0",
+    "request": "^2.81.0",
+    "winston": "^2.4.0"
   }
 }
